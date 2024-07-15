@@ -28,6 +28,6 @@ releases:
   namespace: gitea
   createNamespace: true
   chart: gitea/gitea
-  version: 10.1.1
+  version: 10.3.0
   values:
     - helm/gitea/values.yaml
