@@ -31,3 +31,5 @@ releases:
   version: 10.3.0
   values:
     - helm/gitea/values.yaml
+
+    ##
