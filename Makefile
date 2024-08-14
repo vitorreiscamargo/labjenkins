@@ -10,3 +10,6 @@ metallb:
 
 helm:
 	@helmfile apply 
+
+get_secret_jenkins:
+	@kubectl get secret jenkins -n jenkins -ojson | jq -r '.data["jenkins-admin-password"], .data["jenkins-admin-user"]' | base64 --decode
