@@ -712,7 +712,7 @@ controller:
     # configures the hostname e.g. jenkins.example.com
     # -- Ingress hostname
     hostName:
-       jenkins.vitorreis.dev.com
+       jenkins.localhost.com
     resourceRootUrl:
     # -- Ingress TLS configuration
     tls: []
