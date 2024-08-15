@@ -5,6 +5,10 @@ repositories:
    url:  https://charts.jenkins.io 
  - name: gitea
    url: https://dl.gitea.com/charts/
+ - name: argo
+   url: https://argoproj.github.io/argo-helm
+ - name: sonarqube
+   url: https://SonarSource.github.io/helm-chart-sonarqube
 
 releases:
 
@@ -14,7 +18,7 @@ releases:
   chart: ingress-nginx/ingress-nginx
   version: 4.11.1
   values:
-    - helm/ingress/values.yaml
+    - helm/nginx/values.yaml
 
 - name: jenkins
   namespace: jenkins
@@ -31,3 +35,19 @@ releases:
   version: 10.4.0
   values:
     - helm/gitea/values.yaml
+
+- name: argocd
+  namespace: argocd
+  createNamespace: true
+  chart: argo/argo-cd
+  version: 7.4.2
+  values:
+    - helm/argocd/values.yaml
+
+- name: sonarqube
+  namespace: sonarqube
+  createNamespace: true
+  chart: sonarqube/sonarqube
+  version: 10.4.0+2288
+  values:
+    - helm/sonarqube/values.yaml
