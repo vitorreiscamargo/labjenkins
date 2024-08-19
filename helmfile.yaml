@@ -8,7 +8,11 @@ repositories:
  - name: argo
    url: https://argoproj.github.io/argo-helm
  - name: sonarqube
-   url: https://SonarSource.github.io/helm-chart-sonarqube
+   url: https://SonarSource.github.io/helm-chart-sonarqube  
+ - name: harbor
+   url: https://helm.goharbor.io
+ - name: imagepullsecret
+   url: https://empathyco.github.io/helm-charts/
 
 releases:
 
@@ -51,3 +55,19 @@ releases:
   version: 10.4.0+2288
   values:
     - helm/sonarqube/values.yaml
+
+- name: harbor
+  namespace: harbor
+  createNamespace: true
+  chart: harbor/harbor
+  version: 1.15.0
+  values:
+    - helm/harbor/values.yaml
+
+- name: imagepullsecret-patcher
+  namespace: imagepullsecret-patcher
+  createNamespace: true
+  chart: imagepullsecret/imagepullsecret-patcher
+  version: 1.0.0
+  values:
+    - helm/imagepull-patcher/values.yaml
